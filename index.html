@@ -1,7 +1,260 @@
+<!doctype html>
 <html>
+
 <head>
-<title>Dedi Setiawan</title></head>
-<body>
-  Hi!
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            wiggle: 'wiggle 3s ease-in-out infinite',
+          },
+          keyframes: {
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  </style>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .poppins-thin {
+        font-family: "Poppins", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+      }
+
+      .poppins-extralight {
+        font-family: "Poppins", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+      }
+
+      .poppins-light {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      .poppins-regular {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .poppins-medium {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      .poppins-semibold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .poppins-bold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .poppins-extrabold {
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
+        font-style: normal;
+      }
+
+      .poppins-black {
+        font-family: "Poppins", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+
+      .poppins-thin-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poppins-extralight-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 200;
+        font-style: italic;
+      }
+
+      .poppins-light-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: italic;
+      }
+
+      .poppins-regular-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      .poppins-medium-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .poppins-semibold-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      .poppins-bold-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      .poppins-extrabold-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
+        font-style: italic;
+      }
+
+      .poppins-black-italic {
+        font-family: "Poppins", sans-serif;
+        font-weight: 900;
+        font-style: italic;
+      }
+      
+      .var-highlight{
+        color: #C0AD60;
+      }
+      .string-highlight{
+        color: #FFDC00;
+        text-wrap: wrap;
+      }
+
+      #typewriter{
+          font-size: 2em;
+          margin: 0;
+          font-family: "Poppins";
+
+          &:after{
+            content: "_";
+            animation: blink 500ms linear infinite alternate;
+          }
+      }
+
+      .marquee {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        background-color: #FFDC00;
+      }
+
+      .marquee__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .marquee__line {
+        flex-shrink: 0;
+        margin: 0;
+        min-width: 100%;
+        white-space: nowrap;
+        animation-name: marqueeLine;
+        animation-duration: 20s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes marqueeLine {
+        from {
+          transform: translateX(0);
+        }
+        
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      @-webkit-keyframes blink{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+      }
+
+      @-moz-keyframes blink{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+      }
+
+      @keyframes blink{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900">
+  <div class="w-full h-[30px] bg-[#FFDC00]/90 flex justify-between items-center px-12 py-6 sticky top-0">
+    <p class="text-slate font-bold">+62815-7527-1662 | dssetiawan05@gmail.com </p>
+    <button class="text-white px-5 py-2 bg-slate-900 rounded-lg shadow-md font-bold">Hire me</button>
+  </div>
+  <div class="h-full w-full px-4 py-10 text-white">
+    <div class="w-full h-[300px] px-10 grid grid-cols-1 lg:grid-cols-2 justify-between mt-10">
+      <pre id="typewriter" class="!text-xl !-ml-10 lg:ml-10">
+        <span class="var-highlight">var</span> Front-end Developer = {
+                              name : <span class="string-highlight"> 'Dedi Setiawan'</span>,
+                              experience : <span class="string-highlight"> '3 Years'</span>,
+                              stack : [
+                                <span class="string-highlight">'Typescript'</span>,
+                                <span class="string-highlight">'React Js'</span>,
+                                <span class="string-highlight">'Next Js'</span>,
+                                <span class="string-highlight">'React Native'</span>,
+                                <span class="string-highlight">'Flutter'</span>,
+                                <span class="string-highlight">'Tailwind'</span>
+                              ];
+                          }; 
+      </pre>
+      <div class="flex justify-end items-start">
+        <img class="hidden lg:block animate-wiggle drop-shadow-md rounded-full border-dashed border-4 size-96"
+          src="/assets//images/iam.png" loading="lazy" />
+      </div>
+    </div>
+  </div>
+  <div class="bg-red-50 my-20 px-20">
+    <h2 class="text-2xl font-bold uppercase">Showcases</h2>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-10 my-10 gap-3">
+    <div class="rounded-md h-[250px] bg-red-50">
+      <h2 class="text-2xl font-bold">Chessify</h2>
+    </div>
+    <div class="rounded-md h-[250px] bg-red-50">
+      <h2 class="text-2xl font-bold">SVG</h2>
+    </div>
+    <div class="rounded-md h-[250px] bg-red-50">
+      <h2 class="text-2xl font-bold">Bagman</h2>
+    </div>
+    <div class="rounded-md h-[250px] bg-red-50">
+      <h2 class="text-2xl font-bold">Dahuna</h2>
+    </div>
+  </div>
+  <footer class="bg-red-50 px-6 font-bold py-2">
+    Frontend Developer @ Dedi Setiawan 
+  </footer>
 </body>
+<script src="./index.js"></script>
+
 </html>
