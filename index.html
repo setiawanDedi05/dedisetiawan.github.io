@@ -1,260 +1,423 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            wiggle: 'wiggle 3s ease-in-out infinite',
-          },
-          keyframes: {
-            wiggle: {
-              '0%, 100%': { transform: 'rotate(-3deg)' },
-              '50%': { transform: 'rotate(3deg)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-  </style>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .poppins-thin {
-        font-family: "Poppins", sans-serif;
-        font-weight: 100;
-        font-style: normal;
-      }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      .poppins-extralight {
-        font-family: "Poppins", sans-serif;
-        font-weight: 200;
-        font-style: normal;
-      }
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-      .poppins-light {
-        font-family: "Poppins", sans-serif;
-        font-weight: 300;
-        font-style: normal;
-      }
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
 
-      .poppins-regular {
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
 
-      .poppins-medium {
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-      }
-
-      .poppins-semibold {
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
-      }
-
-      .poppins-bold {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-      }
-
-      .poppins-extrabold {
-        font-family: "Poppins", sans-serif;
-        font-weight: 800;
-        font-style: normal;
-      }
-
-      .poppins-black {
-        font-family: "Poppins", sans-serif;
-        font-weight: 900;
-        font-style: normal;
-      }
-
-      .poppins-thin-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 100;
-        font-style: italic;
-      }
-
-      .poppins-extralight-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 200;
-        font-style: italic;
-      }
-
-      .poppins-light-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 300;
-        font-style: italic;
-      }
-
-      .poppins-regular-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: italic;
-      }
-
-      .poppins-medium-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        font-style: italic;
-      }
-
-      .poppins-semibold-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: italic;
-      }
-
-      .poppins-bold-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-style: italic;
-      }
-
-      .poppins-extrabold-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 800;
-        font-style: italic;
-      }
-
-      .poppins-black-italic {
-        font-family: "Poppins", sans-serif;
-        font-weight: 900;
-        font-style: italic;
-      }
-      
-      .var-highlight{
-        color: #C0AD60;
-      }
-      .string-highlight{
-        color: #FFDC00;
-        text-wrap: wrap;
-      }
-
-      #typewriter{
-          font-size: 2em;
-          margin: 0;
-          font-family: "Poppins";
-
-          &:after{
-            content: "_";
-            animation: blink 500ms linear infinite alternate;
-          }
-      }
-
-      .marquee {
-        overflow: hidden;
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        background-color: #FFDC00;
-      }
-
-      .marquee__inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .marquee__line {
-        flex-shrink: 0;
-        margin: 0;
-        min-width: 100%;
-        white-space: nowrap;
-        animation-name: marqueeLine;
-        animation-duration: 20s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-      }
-
-      @keyframes marqueeLine {
-        from {
-          transform: translateX(0);
-        }
-        
-        to {
-          transform: translateX(-100%);
-        }
-      }
-
-      @-webkit-keyframes blink{
-        0%{opacity: 0;}
-        100%{opacity: 1;}
-      }
-
-      @-moz-keyframes blink{
-        0%{opacity: 0;}
-        100%{opacity: 1;}
-      }
-
-      @keyframes blink{
-        0%{opacity: 0;}
-        100%{opacity: 1;}
-      }
-    }
-  </style>
+   <title>Responsive portfolio website Rian - Bedimcode</title>
 </head>
 
-<body class="bg-slate-900">
-  <div class="w-full h-[30px] bg-[#FFDC00]/90 flex justify-between items-center px-3 lg:px-12 py-6 sticky top-0">
-    <p class="text-slate font-bold">+62815-7527-1662 | dssetiawan05@gmail.com </p>
-    <button class="text-white w-[150px] px-5 py-2 bg-slate-900 rounded-lg shadow-md font-bold">Hire me</button>
-  </div>
-  <div class="h-full w-full px-4 py-10 text-white">
-    <div class="w-full h-[200px] lg:h-[300px] px-10 grid grid-cols-1 lg:grid-cols-2 justify-between mt-10">
-      <pre id="typewriter" class="!text-sm lg:!text-xl !-ml-10 lg:ml-10">
-        <span class="var-highlight">var</span> Front-end Developer = {
-                              name : <span class="string-highlight"> 'Dedi Setiawan'</span>,
-                              experience : <span class="string-highlight"> '3 Years'</span>,
-                              stack : [
-                                <span class="string-highlight">'Typescript'</span>,
-                                <span class="string-highlight">'React Js'</span>,
-                                <span class="string-highlight">'Next Js'</span>,
-                                <span class="string-highlight">'React Native'</span>,
-                                <span class="string-highlight">'Flutter'</span>,
-                                <span class="string-highlight">'Tailwind'</span>
-                              ];
-                          }; 
-      </pre>
-      <div class="flex justify-end items-start">
-        <img class="hidden lg:block animate-wiggle drop-shadow-md rounded-full border-dashed border-4 size-96"
-          src="/assets//images/iam.png" loading="lazy" />
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+      <nav class="nav container">
+         <a href="#" class="nav__logo">
+            <span class="nav__logo-circle">DS</span>
+            <span class="nav__logo-name">Dedi Setiawan.</span>
+         </a>
+         <div class="nav__menu" id="nav-menu">
+            <span class="nav__title">Menu</span>
+            <h3 class="nav__name">Dedi</h3>
+            <ul class="nav__list">
+
+               <li class="nav__item">
+                  <a href="#home" class="nav__link">Home</a>
+               </li>
+
+               <li class="nav__item">
+                  <a href="#about" class="nav__link">About Me</a>
+               </li>
+
+               <li class="nav__item">
+                  <a href="#projects" class="nav__link">Projects</a>
+               </li>
+
+               <li class="nav__item">
+                  <a href="#contact" class="nav__link">Contact Me</a>
+               </li>
+
+            </ul>
+
+            <!-- close button -->
+            <div class="nav__close" id="nav-close">
+               <i class="ri-close-line"></i>
+            </div>
+         </div>
+
+         <div class="nav__buttons">
+            <!-- toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-2-line"></i>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <!--==================== MAIN ====================-->
+   <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home section" id="home">
+         <div class="home__container container grid">
+            <h1 class="home__name">
+               Dedi Setiawan
+            </h1>
+
+            <div class="home__perfil">
+               <div class="home__image">
+                  <img src="assets/img/home-perfil.jpg" alt="image" class="home__img">
+                  <div class="home__shadow"></div>
+
+                  <img src="assets/img/curved-arrow.svg" alt="" class="home__arrow">
+                  <img src="assets/img/random-lines.svg" alt="" class="home__line">
+
+                  <div class="geometric-box"></div>
+               </div>
+
+               <div class="home__social">
+                  <a href="https://www.linkedin.com/in/dedi-setiawan-05/" target="_blank" class="home__social-link">
+                     <i class="ri-linkedin-box-fill"></i>
+                  </a>
+                  <a href="https://github.com/setiawanDedi05" target="_blank" class="home__social-link">
+                     <i class="ri-github-fill"></i>
+                  </a>
+               </div>
+            </div>
+
+            <div class="home__info">
+               <p class="home__description">
+                  <b>Frontend Developer</b>, with 3 years experience in web development and mobile development, i work
+                  every projects in best practice and component base.
+               </p>
+
+               <a href="#about" class="home__scroll">
+                  <div class="home__scroll-box">
+                     <i class="ri-arrow-down-s-line"></i>
+                  </div>
+
+                  <span class="home__scroll-text">
+                     Scroll Down
+                  </span>
+               </a>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== ABOUT ====================-->
+      <section class="about section" id="about">
+         <div class="about__container container grid">
+            <h2 class="section__title-1">
+               <span>
+                  About Me
+               </span>
+            </h2>
+
+            <div class="about__perfil">
+               <div class="about__image">
+                  <img src="assets/img/about-perfil.jpg" alt="image" class="about__img" />
+                  <div class="about__shadow"></div>
+                  <div class="geometric-box"></div>
+                  <img src="assets/img/random-lines.svg" alt="" class="about__line">
+                  <div class="about__box"></div>
+               </div>
+            </div>
+
+            <div class="about__info">
+               <p class="about__description">
+                  Passionate about creating <b>Web App</b> and <b>Mobile App</b>, I have 3 years of experience and many
+                  clients are happy with the projects carried out.
+               </p>
+
+               <ul class="about__list">
+                  <li class="about__item">
+                     <b>My Skill Are:</b> HTML, CSS, Javascript, React Js, React Native, Flutter & Tailwind CSS.
+                  </li>
+               </ul>
+
+               <div class="about__buttons">
+                  <a href="#contact" class="button">
+                     <i class="ri-send-plane-2-line"></i> Contact Me
+                  </a>
+
+                  <a href="https://www.linkedin.com/in/dedi-setiawan-05/" class="button__ghost" target="_blank">
+                     <i class="ri-linkedin-box-fill"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== SERVICES ====================-->
+      <section class="services section">
+         <h2 class="section__title-2">
+            <span>Services.</span>
+         </h2>
+
+         <div class="services__container container grid">
+            <article class="services__card">
+               <div class="services__border"></div>
+               <div class="services__content">
+                  <div class="services__icon">
+                     <div class="services__box"></div>
+                     <i class="ri-macbook-line"></i>
+                  </div>
+
+                  <h2 class="services__title">Web Development</h2>
+                  <p class="services__description">
+                     Reusable Component, Memoization and flawless user experience.
+                  </p>
+               </div>
+            </article>
+            <article class="services__card">
+               <div class="services__border"></div>
+               <div class="services__content">
+                  <div class="services__icon">
+                     <div class="services__box"></div>
+                     <i class="ri-smartphone-line"></i>
+                  </div>
+
+                  <h2 class="services__title">Mobile Development</h2>
+                  <p class="services__description">Development mobile apps or transform website project into mobile apps
+                     to provide a seamless user experience.</p>
+               </div>
+            </article>
+         </div>
+      </section>
+
+      <!--==================== PROJECTS ====================-->
+      <section class="projects section" id="projects">
+         <h2 class="section__title-1">
+            <span>Projects.</span>
+         </h2>
+
+         <div class="projects__container container grid">
+            <article class="projects__card">
+               <div class="projects__image">
+                  <img src="assets/img/project-1.jpg" alt="image" class="projects__img">
+
+                  <a href="#" class="projects__button button">
+                     <i class="ri-arrow-right-up-line"></i>
+                  </a>
+               </div>
+
+               <div class="projects__content">
+                  <h3 class="projects__subtitle">Web apps</h3>
+                  <h2 class="projects__title">Bagman - Task Management</h2>
+                  <p class="projects__description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laboriosam voluptate totam numquam
+                     accusamus harum libero dolores at deleniti modi, provident deserunt saepe debitis cum eos iure
+                     iusto voluptatum voluptatem?
+                  </p>
+               </div>
+               <div class="projects__buttons">
+                  <a href="" class="projects__link">
+                     <i class="ri-github-fill"></i> View
+                  </a>
+                  <a href="" class="projects__link">
+                     <i class="ri-external-link-line"></i> View
+                  </a>
+               </div>
+            </article>
+
+            <article class="projects__card">
+               <div class="projects__image">
+                  <img src="assets/img/project-2.jpg" alt="image" class="projects__img">
+
+                  <a href="#" class="projects__button button">
+                     <i class="ri-arrow-right-up-line"></i>
+                  </a>
+               </div>
+
+               <div class="projects__content">
+                  <h3 class="projects__subtitle">Web Apps</h3>
+                  <h2 class="projects__title">SVG - short video generation</h2>
+                  <p class="projects__description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laboriosam voluptate totam numquam
+                     accusamus harum libero dolores at deleniti modi, provident deserunt saepe debitis cum eos iure
+                     iusto voluptatum voluptatem?
+                  </p>
+               </div>
+               <div class="projects__buttons">
+                  <a href="" class="projects__link">
+                     <i class="ri-github-fill"></i> View
+                  </a>
+                  <a href="" class="projects__link">
+                     <i class="ri-external-link-line"></i> View
+                  </a>
+               </div>
+            </article>
+
+            <article class="projects__card">
+               <div class="projects__image">
+                  <img src="assets/img/project-3.jpg" alt="image" class="projects__img">
+
+                  <a href="#" class="projects__button button">
+                     <i class="ri-arrow-right-up-line"></i>
+                  </a>
+               </div>
+
+               <div class="projects__content">
+                  <h3 class="projects__subtitle">Web Apps</h3>
+                  <h2 class="projects__title">Dahuna - E-commerce</h2>
+                  <p class="projects__description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laboriosam voluptate totam numquam
+                     accusamus harum libero dolores at deleniti modi, provident deserunt saepe debitis cum eos iure
+                     iusto voluptatum voluptatem?
+                  </p>
+               </div>
+               <div class="projects__buttons">
+                  <a href="" class="projects__link">
+                     <i class="ri-github-fill"></i> View
+                  </a>
+                  <a href="" class="projects__link">
+                     <i class="ri-external-link-line"></i> View
+                  </a>
+               </div>
+            </article>
+
+            <article class="projects__card">
+               <div class="projects__image">
+                  <img src="assets/img/project-3.jpg" alt="image" class="projects__img">
+
+                  <a href="#" class="projects__button button">
+                     <i class="ri-arrow-right-up-line"></i>
+                  </a>
+               </div>
+
+               <div class="projects__content">
+                  <h3 class="projects__subtitle">Web Apps</h3>
+                  <h2 class="projects__title">Chessify</h2>
+                  <p class="projects__description">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laboriosam voluptate totam numquam
+                     accusamus harum libero dolores at deleniti modi, provident deserunt saepe debitis cum eos iure
+                     iusto voluptatum voluptatem?
+                  </p>
+               </div>
+               <div class="projects__buttons">
+                  <a href="" class="projects__link">
+                     <i class="ri-github-fill"></i> View
+                  </a>
+                  <a href="" class="projects__link">
+                     <i class="ri-external-link-line"></i> View
+                  </a>
+               </div>
+            </article>
+         </div>
+      </section>
+
+      <!--==================== CONTACT ====================-->
+      <section class="contact section" id="contact">
+         <div class="contact__container grid">
+            <div class="contact__data">
+               <h2 class="section__title-2">
+                  <span>
+                     Contact Me
+                  </span>
+               </h2>
+               <p class="contact__description-1">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo ipsam aperiam, laudantium praesentium
+                  laborum doloribus deleniti a labore, qui, provident odio perferendis aut ratione. Quibusdam sunt error
+                  nemo quidem architecto.
+               </p>
+               <div class="geometric-box"></div>
+            </div>
+            <div class="contact__mail">
+               <h2 class="contact__title">Send me a Message</h2>
+               <form action="" class="contact__form" id="contact-form">
+                  <div class="contact__group">
+                     <div class="contact__box">
+                        <input type="text" name="name" id="name" class="contact__input" required placeholder="name">
+                        <label for="name" class="contact__label">Name</label>
+                     </div>
+                     <div class="contact__box">
+                        <input type="email" name="email" id="email" class="contact__input" required
+                           placeholder="email@example.com">
+                        <label for="email" class="contact__label">Email</label>
+                     </div>
+                     <div class="contact__box">
+                        <input type="subject" name="subject" id="subject" class="contact__input" required
+                           placeholder="subject">
+                        <label for="subject" class="contact__label">Subject</label>
+                     </div>
+                     <div class="contact__box contact__area">
+                        <textarea name="message" id="message" class="contact__input" required
+                           placeholder="Message"></textarea>
+                        <label for="message" class="contact__label">Message</label>
+                     </div>
+
+                     <p class="contact__message" id="contact-message"></p>
+                     <button type="submit" class="contact__button button">
+                        <i class="ri-mail-send-line"></i>Send Message
+                     </button>
+                  </div>
+               </form>
+            </div>
+
+            <div class="contact__social">
+               <img src="assets/img/curved-arrow.svg" alt="arrow" class="contact__social-arrow">
+               <div class="contact__social-data">
+                  <div>
+                     <p class="contact__social-description-1">
+                        Does not send emails?
+                     </p>
+                     <p class="contact__social-description-2">
+                        Write me on social network
+                     </p>
+                  </div>
+                  <div class="contact__social-links">
+                     <a href="http://" target="_blank" rel="noopener noreferrer" class="contact__social-link">
+                        <i class="ri-linkedin-box-fill"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer">
+      <div class="footer__container container grid">
+         <ul class="footer__links">
+            <li>
+               <a href="#about" class="footer__link">About</a>
+            </li>
+            <li>
+               <a href="#services" class="footer__link">Services</a>
+            </li>
+            <li>
+               <a href="#projects" class="footer__link">Projects</a>
+            </li>
+         </ul>
+
+         <span class="footer__copy">
+            &#169; All Right Reserved By <a href="">Dedi Setiawan.</a>
+         </span>
       </div>
-    </div>
-  </div>
-  <div class="bg-red-50 my-20 px-20">
-    <h2 class="text-2xl font-bold uppercase">Showcases</h2>
-  </div>
-  <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-10 my-10 gap-3">
-    <div class="rounded-md h-[250px] bg-red-50">
-      <h2 class="text-2xl font-bold">Chessify</h2>
-    </div>
-    <div class="rounded-md h-[250px] bg-red-50">
-      <h2 class="text-2xl font-bold">SVG</h2>
-    </div>
-    <div class="rounded-md h-[250px] bg-red-50">
-      <h2 class="text-2xl font-bold">Bagman</h2>
-    </div>
-    <div class="rounded-md h-[250px] bg-red-50">
-      <h2 class="text-2xl font-bold">Dahuna</h2>
-    </div>
-  </div>
-  <footer class="bg-red-50 px-6 font-bold py-2">
-    Frontend Developer @ Dedi Setiawan 
-  </footer>
+   </footer>
+
+   <!--========== SCROLL UP ==========-->
+
+
+   <!--=============== SCROLLREVEAL ===============-->
+   <script src=""></script>
+
+   <!--=============== EMAIL JS ===============-->
+
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+   </script>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="assets/js/main.js"></script>
 </body>
-<script src="./index.js"></script>
 
 </html>
