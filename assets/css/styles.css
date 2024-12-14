@@ -826,9 +826,7 @@ body.dark-theme {
 }
 
 .contact__container {
-  position: relative;
-  align-items: center;
-  justify-content: center;
+  margin: auto;
 }
 
 .contact__mail {
@@ -1423,14 +1421,12 @@ body.dark-theme {
   }
 
   .contact__container{
-    grid-template-columns: 440px 670px;
-    grid-template-rows: initial;
-    padding-bottom: 2rem;
+    width: 100%;
   }
 
   .contact__mail{
-    padding: 7rem 5.5rem 6rem 7.5rem;
-    margin-top: 0;
+    margin: auto;
+    width: 50%;
   }
 
   .contact__title{
